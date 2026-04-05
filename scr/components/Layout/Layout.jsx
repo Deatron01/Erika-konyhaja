@@ -10,7 +10,7 @@ const Layout = () => {
         <Outlet />
       </main>
       <footer className="bg-brand-dark text-brand-bg py-8 text-center">
-        <p className="opacity-80">© {new Date().getFullYear()} Marcsi Konyhája. Minden jog fenntartva.</p>
+        <p className="opacity-80">© {new Date().getFullYear()} Pógyor Erika (@eranagy20). Minden jog fenntartva.</p>
       </footer>
     </div>
   );

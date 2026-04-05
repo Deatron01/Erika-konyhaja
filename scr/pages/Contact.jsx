@@ -28,7 +28,7 @@ const Contact = () => {
           <textarea 
             rows="5"
             className="w-full bg-brand-bg/50 border border-brand-beige rounded-xl px-4 py-3 focus:outline-none focus:border-brand-mid focus:ring-1 focus:ring-brand-mid transition-colors text-brand-dark resize-none"
-            placeholder="Szia Marcsi! A tegnapi tészta isteni lett..."
+            placeholder="Szia Erika! A tegnapi tészta isteni lett..."
           ></textarea>
         </div>
         <button 
