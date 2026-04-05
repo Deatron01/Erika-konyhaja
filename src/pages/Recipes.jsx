@@ -3,93 +3,83 @@ import { RecipeContext } from '../context/RecipeContext';
 import RecipeCard from '../components/UI/RecipeCard';
 
 const Recipes = () => {
-  // Ezt a sort illeszd be a komponens legelejére:
   const { recipes } = useContext(RecipeContext);
-  
-  // Ez az állapot (state) tárolja, amit a felhasználó beír a keresőbe
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Szűrési logika
+  // Szűrési logika: Címben, leírásban és hozzávalókban is keres
   const filteredRecipes = recipes.filter(recipe => {
-    // Mindent kisbetűssé alakítunk a biztonságos összehasonlításhoz
-    const searchLower = searchTerm.toLowerCase();
-    
-    // Keresés a címben
+    const searchLower = searchTerm.toLowerCase().trim();
     const matchTitle = recipe.title.toLowerCase().includes(searchLower);
-    
-    // Keresés a rövid leírásban
     const matchDesc = recipe.shortDescription.toLowerCase().includes(searchLower);
-    
-    // Keresés a hozzávalók között (ha bármelyik hozzávaló tartalmazza a keresett szót)
     const matchIngredients = recipe.ingredients.some(ingredient => 
       ingredient.toLowerCase().includes(searchLower)
     );
-    
-    // Ha a címben, a leírásban VAGY a hozzávalókban szerepel a szó, akkor mutatjuk
     return matchTitle || matchDesc || matchIngredients;
   });
 
   return (
-    <div className="space-y-10">
-      <div className="text-center max-w-2xl mx-auto">
-        <h1 className="text-4xl font-bold text-brand-dark mb-4">Összes Recept</h1>
-        <p className="text-brand-mid text-lg">
+    <div className="max-w-7xl mx-auto space-y-16 pb-24 relative z-10">
+      
+      {/* FEJLÉC SZAKASZ */}
+      <div className="text-center max-w-3xl mx-auto space-y-6 pt-10">
+        <h1 className="text-5xl md:text-6xl font-black text-brand-dark tracking-tight">
+          Összes Recept
+        </h1>
+        <p className="text-brand-dark/70 text-lg md:text-xl font-medium italic leading-relaxed">
           Böngéssz az összes eddigi kedvenc között! Itt megtalálod a TikTokon látott összes finomságot, egy helyen összegyűjtve.
         </p>
       </div>
       
-      {/* Keresőmező bekötve */}
-      <div className="flex justify-center mb-10">
-        <div className="relative w-full max-w-md">
+      {/* KERESŐMEZŐ - Modernizált üveghatású design */}
+      <div className="flex justify-center">
+        <div className="relative w-full max-w-lg group">
           <input 
             type="text" 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Mit főznél ma? (pl. tészta, fokhagyma...)" 
-            className="w-full bg-white border border-brand-beige rounded-xl py-3.5 pl-12 pr-5 shadow-soft focus:outline-none focus:border-brand-mid focus:ring-1 focus:ring-brand-mid transition-colors text-brand-dark"
+            placeholder="Mit főznél ma?" 
+            className="w-full bg-white/60 backdrop-blur-md border border-brand-beige/50 rounded-[2rem] py-5 pl-14 pr-12 shadow-soft focus:outline-none focus:ring-4 focus:ring-brand-light/20 focus:border-brand-light transition-all text-brand-dark font-medium placeholder:text-brand-mid/50"
           />
-          {/* Kis nagyító ikon a keresőmezőbe (Tailwind-hez igazítva) */}
+          {/* Nagyító ikon */}
           <svg 
-            className="absolute left-4 top-4 w-5 h-5 text-brand-light" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
+            className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-brand-light group-focus-within:scale-110 transition-transform" 
+            fill="none" stroke="currentColor" viewBox="0 0 24 24"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           
-          {/* "X" gomb a keresés törléséhez, csak akkor jelenik meg, ha van beírva valami */}
+          {/* Törlés gomb */}
           {searchTerm && (
             <button 
               onClick={() => setSearchTerm('')}
-              className="absolute right-4 top-4 text-brand-light hover:text-brand-mid"
+              className="absolute right-5 top-1/2 -translate-y-1/2 text-brand-mid hover:text-brand-dark transition-colors"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           )}
         </div>
       </div>
 
-      {/* Recept kártyák listázása VAGY üres állapot kezelése */}
+      {/* RECEPT GRID - Megemelt gap a magas videós kártyákhoz */}
       {filteredRecipes.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-x-10 md:gap-y-16">
           {filteredRecipes.map(recipe => (
             <RecipeCard key={recipe.id} recipe={recipe} />
           ))}
         </div>
       ) : (
-        /* Ezt látja a felhasználó, ha nincs találat */
-        <div className="text-center py-16 bg-white rounded-3xl border border-brand-beige shadow-soft">
-          <div className="text-6xl mb-4">🍳</div>
-          <h3 className="text-2xl font-bold text-brand-dark mb-2">Sajnos nincs ilyen receptünk</h3>
-          <p className="text-brand-mid text-lg mb-6">
+        /* Üres állapot kártyája */
+        <div className="text-center py-24 bg-white/50 backdrop-blur-md rounded-[3rem] border border-brand-beige/50 shadow-soft max-w-2xl mx-auto">
+          <div className="text-7xl mb-6 animate-bounce">🍳</div>
+          <h3 className="text-3xl font-black text-brand-dark mb-3">Sajnos nincs ilyen receptünk</h3>
+          <p className="text-brand-dark/60 text-lg mb-8 italic">
             Nem találtunk semmit erre: <span className="font-bold text-brand-dark">"{searchTerm}"</span>
           </p>
           <button 
             onClick={() => setSearchTerm('')}
-            className="bg-brand-bg text-brand-dark px-6 py-2 rounded-xl font-medium border border-brand-beige hover:bg-white transition-colors"
+            className="bg-brand-dark text-white px-10 py-4 rounded-2xl font-bold hover:bg-brand-mid transition-all shadow-lg active:scale-95"
           >
             Összes recept mutatása
           </button>

@@ -1,11 +1,11 @@
-import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
-  // TODO: Ide jön majd a valódi autentikációs logika (pl. Firebase, Supabase, JWT token ellenőrzés)
-  const isAuthenticated = true; // Most 'true'-ra állítva, hogy meg tudd nézni az Admin oldalt!
-
+  // Megnézzük, hogy a böngésző "emlékszik-e" a sikeres belépésre
+  const isAuthenticated = localStorage.getItem('isLoggedIn') === 'true';
+  
   if (!isAuthenticated) {
+    // Ha nem, visszadobjuk a loginra
     return <Navigate to="/login" replace />;
   }
 

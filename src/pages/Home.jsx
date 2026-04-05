@@ -1,56 +1,105 @@
-import React from 'react';
-import { recipes } from '../data/mockRecipes';
+import React, { useContext, useMemo } from 'react';
+import { RecipeContext } from '../context/RecipeContext';
 import RecipeCard from '../components/UI/RecipeCard';
 import { Link } from 'react-router-dom';
+import TikTokEmbed from '../components/UI/TikTokEmbed';
 
 const Home = () => {
+  const { recipes } = useContext(RecipeContext);
+  const profileImage ="https://p16-common-sign.tiktokcdn-eu.com/tos-no1a-avt-0068c001-no/d79ae7899f74631161bd771dd6e9445c~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=10399&refresh_token=a66c5278&x-expires=1775548800&x-signature=JEeoaX7m5%2BQKA5ZNCqVVEJELVrU%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=no1a"
+  const allTikTokIds = useMemo(() => {
+    const ids = recipes
+      .map(r => r.tikTokId)
+      .filter(id => id && id.trim() !== '');
+    return ids.length > 0 ? ids : ["7321234567890123456"]; 
+  }, [recipes]);
+
+  const randomTikTokId = useMemo(() => {
+    return allTikTokIds[Math.floor(Math.random() * allTikTokIds.length)];
+  }, [allTikTokIds]);
+
+  const latestRecipes = recipes.slice(0, 3);
+
   return (
-    <div className="space-y-16">
-      {/* Hero Section */}
-      <section className="bg-white rounded-3xl p-8 md:p-12 shadow-soft flex flex-col md:flex-row items-center gap-8 border border-brand-beige">
-        <div className="flex-1 space-y-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-brand-dark leading-tight">
-            Ízek, amiket a <span className="text-brand-mid">TikTokról</span> már ismersz.
+    <div className="space-y-20 pb-12">
+      {/* --- MODERN, DE OTTHONOS HERO SECTION --- */}
+      <section className="relative overflow-hidden bg-white/40 backdrop-blur-md rounded-[2.5rem] p-8 md:p-16 shadow-soft border border-brand-beige/50 flex flex-col lg:flex-row items-center gap-12">
+        
+        <div className="flex-1 space-y-8 relative z-10 text-center lg:text-left">
+          <div className="flex flex-col lg:flex-row items-center gap-4 justify-center lg:justify-start">
+            <div className="w-16 h-16 rounded-full border-2 border-brand-light p-0.5 shadow-md">
+               <img 
+                src={profileImage} 
+                alt="Pógyor Erika" 
+                className="w-full h-full rounded-full object-cover"
+               />
+            </div>
+            <div className="inline-block px-4 py-1.5 bg-brand-mid/10 text-brand-mid rounded-full text-sm font-bold tracking-wide ">
+              Szeretettel köszöntelek az oldalamon!
+            </div>
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl font-extrabold text-brand-dark leading-[1.1]">
+            Kárpátaljai ízek, <br />
+            <span className="text-brand-light">szívvel-lélekkel.</span>
           </h1>
-          <p className="text-lg text-brand-mid leading-relaxed">
-            Isten hozott <strong>Pógyor Erika</strong> digitális receptfüzetében! Itt megtalálod az <a href="https://www.tiktok.com/@eranagy20" target="_blank" rel="noopener noreferrer" className="text-brand-dark font-bold hover:underline">@eranagy20</a> TikTok csatornámon szereplő összes étel pontos hozzávalóit és lépésről-lépésre leírását. Főzzünk valami finomat!
+          
+          <p className="text-xl text-brand-dark/70 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
+            Szia, Erika vagyok! Itt azokat az <span className="text-brand-dark font-bold">igazi otthoni ízeket</span> gyűjtöttem össze neked, amiket a TikTokon is láthattál. Nálunk a főzés nem csak recept, hanem gondoskodás, tarts velem, és készítsünk valami finomat a családnak!
           </p>
-          <div className="pt-4 flex flex-col sm:flex-row gap-4">
-            <Link to="/recipes" className="bg-brand-dark text-brand-bg px-8 py-3 rounded-xl hover:bg-brand-mid transition-colors font-semibold text-lg inline-block text-center">
-              Böngészek a receptek között
+          
+          <div className="pt-6 flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
+            <Link 
+              to="/recipes" 
+              className="bg-brand-light text-white px-10 py-4 rounded-2xl hover:bg-brand-mid hover:shadow-lg transition-all duration-300 font-bold text-lg text-center"
+            >
+              Nézzük a recepteket!
             </Link>
             
-            {/* TikTok Gomb */}
             <a 
               href="https://www.tiktok.com/@eranagy20" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="bg-brand-bg text-brand-dark px-8 py-3 rounded-xl hover:bg-white border border-brand-beige transition-colors font-semibold text-lg inline-flex items-center justify-center gap-2"
+              className="group bg-white/80 text-brand-dark px-10 py-4 rounded-2xl border border-brand-beige hover:bg-white hover:shadow-md transition-all duration-300 font-bold text-lg flex items-center justify-center gap-3"
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.63 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-              </svg>
-              Irány a TikTok
+              Főzzünk együtt a TikTokon
             </a>
           </div>
         </div>
-        <div className="flex-1 w-full">
-          <img 
-            src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800" 
-            alt="Konyha hangulat" 
-            className="rounded-2xl shadow-md object-cover h-80 w-full"
-          />
+
+        {/* Videó szekció */}
+        <div className="flex-1 w-full relative flex justify-center lg:justify-end">
+          <div className="absolute inset-0 bg-brand-mid/5 rounded-[2rem] transform rotate-3 scale-105 -z-10"></div>
+          <div className="w-full max-w-[325px] h-[580px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/50 relative z-10 bg-brand-dark/10">
+            <TikTokEmbed key={randomTikTokId} videoId={randomTikTokId} asHero={true} autoplay={true} />
+          </div>
         </div>
       </section>
 
-      {/* Latest Recipes */}
-      <section>
-        <h2 className="text-3xl font-bold text-brand-dark mb-8 text-center">Legújabb Finomságok</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {recipes.map(recipe => (
-            <RecipeCard key={recipe.id} recipe={recipe} />
-          ))}
+      {/* Frissített felirat a listához */}
+      <section className="space-y-12">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-brand-beige/30 pb-8">
+          <div>
+            <h2 className="text-4xl font-black text-brand-dark mb-3 tracking-tight">Frissen sült finomságok</h2>
+            <p className="text-brand-mid font-medium text-lg italic">Válogass a legújabb receptjeim között, mintha csak nálam ülnél a konyhában.</p>
+          </div>
+          <Link to="/recipes" className="text-brand-light font-bold hover:text-brand-mid transition-colors flex items-center gap-2 text-lg">
+            Összes finomság
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </Link>
         </div>
+
+        {latestRecipes.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {latestRecipes.map(recipe => (
+              <RecipeCard key={recipe.id} recipe={recipe} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-20 bg-white/20 rounded-3xl border-2 border-dashed border-brand-beige">
+            <p className="text-brand-mid text-xl font-medium italic">Hamarosan érkeznek az új receptek...</p>
+          </div>
+        )}
       </section>
     </div>
   );
