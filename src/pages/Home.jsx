@@ -4,9 +4,12 @@ import RecipeCard from '../components/UI/RecipeCard';
 import { Link } from 'react-router-dom';
 import TikTokEmbed from '../components/UI/TikTokEmbed';
 
+// A saját profilkép importálása a src/img mappából
+import profileImage from '../img/pfp.jpeg';
+
 const Home = () => {
   const { recipes } = useContext(RecipeContext);
-  const profileImage ="https://p16-common-sign.tiktokcdn-eu.com/tos-no1a-avt-0068c001-no/d79ae7899f74631161bd771dd6e9445c~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=10399&refresh_token=a66c5278&x-expires=1775548800&x-signature=JEeoaX7m5%2BQKA5ZNCqVVEJELVrU%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=no1a"
+  
   const allTikTokIds = useMemo(() => {
     const ids = recipes
       .map(r => r.tikTokId)
@@ -23,25 +26,26 @@ const Home = () => {
   return (
     <div className="space-y-20 pb-12">
       {/* --- MODERN, DE OTTHONOS HERO SECTION --- */}
-      <section className="relative overflow-hidden bg-white/40 backdrop-blur-md rounded-[2.5rem] p-8 md:p-16 shadow-soft border border-brand-beige/50 flex flex-col lg:flex-row items-center gap-12">
+      <section className="relative overflow-hidden bg-white/40 backdrop-blur-md rounded-[2.5rem] p-8 md:p-16 shadow-soft border border-brand-beige/50 flex flex-col lg:flex-row items-center gap-12 animate-fade-in-up">
         
         <div className="flex-1 space-y-8 relative z-10 text-center lg:text-left">
           <div className="flex flex-col lg:flex-row items-center gap-4 justify-center lg:justify-start">
-            <div className="w-16 h-16 rounded-full border-2 border-brand-light p-0.5 shadow-md">
+            <div className="w-16 h-16 rounded-full border-2 border-brand-light p-0.5 shadow-md hover:scale-110 transition-transform duration-500">
                <img 
                 src={profileImage} 
                 alt="Pógyor Erika" 
                 className="w-full h-full rounded-full object-cover"
                />
             </div>
-            <div className="inline-block px-4 py-1.5 bg-brand-mid/10 text-brand-mid rounded-full text-sm font-bold tracking-wide ">
+            <div className="inline-block px-4 py-1.5 bg-brand-mid/10 text-brand-mid rounded-full text-sm font-bold tracking-wide hover:bg-brand-mid/20 transition-colors duration-300">
               Szeretettel köszöntelek az oldalamon!
             </div>
           </div>
           
           <h1 className="text-5xl md:text-6xl font-extrabold text-brand-dark leading-[1.1]">
             Kárpátaljai ízek, <br />
-            <span className="text-brand-light">szívvel-lélekkel.</span>
+            {/* Finom pulzálás a kiemelésen */}
+            <span className="text-brand-light inline-block hover:scale-105 transition-transform duration-300">szívvel-lélekkel.</span>
           </h1>
           
           <p className="text-xl text-brand-dark/70 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
@@ -51,7 +55,7 @@ const Home = () => {
           <div className="pt-6 flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
             <Link 
               to="/recipes" 
-              className="bg-brand-light text-white px-10 py-4 rounded-2xl hover:bg-brand-mid hover:shadow-lg transition-all duration-300 font-bold text-lg text-center"
+              className="bg-brand-light text-white px-10 py-4 rounded-2xl hover:bg-brand-mid hover:shadow-lg hover:-translate-y-1 transition-all duration-300 font-bold text-lg text-center"
             >
               Nézzük a recepteket!
             </Link>
@@ -60,30 +64,30 @@ const Home = () => {
               href="https://www.tiktok.com/@eranagy20" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="group bg-white/80 text-brand-dark px-10 py-4 rounded-2xl border border-brand-beige hover:bg-white hover:shadow-md transition-all duration-300 font-bold text-lg flex items-center justify-center gap-3"
+              className="group bg-white/80 text-brand-dark px-10 py-4 rounded-2xl border border-brand-beige hover:bg-white hover:shadow-md hover:-translate-y-1 transition-all duration-300 font-bold text-lg flex items-center justify-center gap-3"
             >
               Főzzünk együtt a TikTokon
             </a>
           </div>
         </div>
 
-        {/* Videó szekció */}
-        <div className="flex-1 w-full relative flex justify-center lg:justify-end">
-          <div className="absolute inset-0 bg-brand-mid/5 rounded-[2rem] transform rotate-3 scale-105 -z-10"></div>
-          <div className="w-full max-w-[325px] h-[580px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/50 relative z-10 bg-brand-dark/10">
+        {/* Videó szekció - úszó (float) animációval */}
+        <div className="flex-1 w-full relative flex justify-center lg:justify-end animate-float">
+          <div className="absolute inset-0 bg-brand-mid/5 rounded-[2rem] transform rotate-3 scale-105 -z-10 transition-transform duration-700 hover:rotate-6"></div>
+          <div className="w-full max-w-[325px] h-[580px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/50 relative z-10 bg-brand-dark/10 group-hover:scale-105 transition-transform duration-500">
             <TikTokEmbed key={randomTikTokId} videoId={randomTikTokId} asHero={true} autoplay={true} />
           </div>
         </div>
       </section>
 
-      {/* Frissített felirat a listához */}
-      <section className="space-y-12">
+      {/* Frissített felirat a listához - Késleltetett megjelenés */}
+      <section className="space-y-12 animate-fade-in-up" style={{ animationDelay: '200ms', opacity: 0, animationFillMode: 'forwards' }}>
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-brand-beige/30 pb-8">
           <div>
             <h2 className="text-4xl font-black text-brand-dark mb-3 tracking-tight">Frissen sült finomságok</h2>
             <p className="text-brand-mid font-medium text-lg italic">Válogass a legújabb receptjeim között, mintha csak nálam ülnél a konyhában.</p>
           </div>
-          <Link to="/recipes" className="text-brand-light font-bold hover:text-brand-mid transition-colors flex items-center gap-2 text-lg">
+          <Link to="/recipes" className="text-brand-light font-bold hover:text-brand-mid hover:translate-x-1 transition-all duration-300 flex items-center gap-2 text-lg">
             Összes finomság
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </Link>
@@ -91,8 +95,14 @@ const Home = () => {
 
         {latestRecipes.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {latestRecipes.map(recipe => (
-              <RecipeCard key={recipe.id} recipe={recipe} />
+            {latestRecipes.map((recipe, index) => (
+              <div 
+                key={recipe.id} 
+                className="animate-fade-in-up hover:-translate-y-2 transition-transform duration-500" 
+                style={{ animationDelay: `${(index + 1) * 150 + 200}ms`, opacity: 0, animationFillMode: 'forwards' }}
+              >
+                <RecipeCard recipe={recipe} />
+              </div>
             ))}
           </div>
         ) : (
