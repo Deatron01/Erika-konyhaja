@@ -5,7 +5,15 @@ export const recipes = [
     "image": "",
     "tikTokId": "7581104092890582294",
     "ingredients": [
-      ""
+      "50 dkg darált sertéshús",
+      "10 dkg rizs",
+      "1 fej vöröshagyma",
+      "1 gerezd fokhagyma",
+      "1 tojás",
+      "8-10 db tölteni való TV paprika",
+      "500 ml sűrített paradicsom (passata)",
+      "só, bors, őrölt fűszerpaprika",
+      "cukor (ízlés szerint a mártáshoz)"
     ],
     "steps": [
       ""
@@ -18,7 +26,15 @@ export const recipes = [
     "image": "",
     "tikTokId": "7586330513619684630",
     "ingredients": [
-      ""
+      "60 dkg sertéscomb vagy lapocka (kockázva)",
+      "2 nagy fej vöröshagyma",
+      "2 gerezd fokhagyma",
+      "1 db TV paprika",
+      "1 db paradicsom",
+      "2 evőkanál sertészsír vagy olaj",
+      "só, bors, őrölt kömény, bőséges pirospaprika",
+      "30 dkg tarhonya",
+      "pici olaj a tarhonya pirításához"
     ],
     "steps": [
       ""
@@ -31,7 +47,17 @@ export const recipes = [
     "image": "",
     "tikTokId": "7587013069738429718",
     "ingredients": [
-      ""
+      "Tészta: 50 dkg finomliszt",
+      "20 dkg vaj vagy margarin",
+      "5 dkg porcukor",
+      "1 dkg friss élesztő",
+      "1 dl hideg tej",
+      "2 tojássárgája",
+      "Töltelék: 30 dkg darált mák",
+      "20 dkg cukor",
+      "1 dl forró tej",
+      "1 citrom reszelt héja",
+      "1 tojás (a kenéshez)"
     ],
     "steps": [
       ""
@@ -44,7 +70,14 @@ export const recipes = [
     "image": "",
     "tikTokId": "7587689427040865558",
     "ingredients": [
-      ""
+      "40 dkg francia saláta alap (répa, borsó, krumpli)",
+      "2 db savanykás alma",
+      "4 db csemegeuborka",
+      "3 dl tejföl",
+      "3-4 evőkanál majonéz",
+      "1 teáskanál mustár",
+      "só, bors, csipet porcukor",
+      "opcionális: felkockázott sonka és főtt tojás"
     ],
     "steps": [
       ""
@@ -57,7 +90,12 @@ export const recipes = [
     "image": "",
     "tikTokId": "7590091431268617474",
     "ingredients": [
-      ""
+      "1 csomag friss leveles tészta",
+      "4-5 db minőségi roppanós virsli",
+      "5-10 dkg reszelt sajt (pl. trappista)",
+      "ketchup, mustár",
+      "1 tojás (a kenéshez)",
+      "szezámmag a szóráshoz"
     ],
     "steps": [
       ""
@@ -70,7 +108,12 @@ export const recipes = [
     "image": "",
     "tikTokId": "7591122456845274390",
     "ingredients": [
-      ""
+      "40 dkg szarvacska vagy orsó tészta",
+      "20 dkg jó minőségű párizsi (kockázva vagy reszelve)",
+      "15 dkg reszelt sajt",
+      "2-3 evőkanál tejföl",
+      "só, bors",
+      "pici olaj"
     ],
     "steps": [
       ""
@@ -83,7 +126,13 @@ export const recipes = [
     "image": "",
     "tikTokId": "7591159169198214422",
     "ingredients": [
-      ""
+      "20 dkg finomliszt",
+      "2 db tojás",
+      "3 dl tej",
+      "2 dl szénsavas ásványvíz",
+      "1 csipet só",
+      "1 teáskanál cukor",
+      "pici olaj a sütéshez és a tésztába"
     ],
     "steps": [
       ""
@@ -96,7 +145,14 @@ export const recipes = [
     "image": "",
     "tikTokId": "7593049871142128918",
     "ingredients": [
-      ""
+      "50 dkg zöldborsó",
+      "2 evőkanál liszt",
+      "2 dl tej vagy tejszín",
+      "1 evőkanál vaj vagy olaj",
+      "1 teáskanál cukor (ízlés szerint)",
+      "só",
+      "fél csokor friss petrezselyem",
+      "4 db virsli"
     ],
     "steps": [
       ""
@@ -124,7 +180,14 @@ export const recipes = [
     "image": "",
     "tikTokId": "7594173007342472470",
     "ingredients": [
-      ""
+      "50 dkg darált hús (sertés vagy marha)",
+      "1 üveg (500g) paradicsomszósz",
+      "1 fej vöröshagyma",
+      "2 gerezd fokhagyma",
+      "1 csomag lasagne tészta",
+      "Besamel: 5 dkg vaj, 5 dkg liszt, 5 dl tej, só, szerecsendió",
+      "20 dkg reszelt sajt",
+      "só, bors, oregánó, bazsalikom"
     ],
     "steps": [
       ""
@@ -137,7 +200,8 @@ export const recipes = [
     "image": "",
     "tikTokId": "7597516200700038422",
     "ingredients": [
-      "Egy evőkanál ketchup",
+      "Fasírthoz: 50 dkg darált hús, 1 áztatott zsemle, 1 tojás, só, bors, fokhagyma",
+      "Szószhoz: Egy evőkanál ketchup",
       "Egy evőkanál méz",
       "Egy kiskanál cukor",
       "Egy evőkanál szójaszósz",
@@ -161,8 +225,9 @@ export const recipes = [
       "2 db tojás",
       "1 kanál zsír",
       "Fél csomag élesztő",
-      "20-30 dkg tepertő",
-      "1.5 dl tej"
+      "20-30 dkg tepertő (darált)",
+      "1.5 dl tej",
+      "Szilvalekvár a töltéshez"
     ],
     "steps": [
       ""
@@ -175,7 +240,14 @@ export const recipes = [
     "image": "",
     "tikTokId": "7601974590813785366",
     "ingredients": [
-      ""
+      "50 dkg zöldbab (paszuly)",
+      "1 fej vöröshagyma",
+      "2 gerezd fokhagyma",
+      "2 dl tejföl",
+      "2 evőkanál liszt a habaráshoz",
+      "só, bors, édes-nemes pirospaprika",
+      "kevés ecet (ízlés szerint)",
+      "pici olaj"
     ],
     "steps": [
       ""
@@ -188,7 +260,13 @@ export const recipes = [
     "image": "",
     "tikTokId": "7603089627464977686",
     "ingredients": [
-      ""
+      "1 kg burgonya",
+      "6-7 db keményre főtt tojás",
+      "25 dkg füstölt kolbász",
+      "4-5 dl tejföl",
+      "só, bors",
+      "10 dkg reszelt sajt a tetejére (opcionális)",
+      "kevés vaj vagy zsír a tepsi kikenéséhez"
     ],
     "steps": [
       ""
@@ -201,7 +279,13 @@ export const recipes = [
     "image": "",
     "tikTokId": "7604458414256721174",
     "ingredients": [
-      ""
+      "30 dkg zöldborsó",
+      "2 db sárgarépa",
+      "1 db fehérrépa",
+      "1 kis fej vöröshagyma",
+      "friss petrezselyemzöld",
+      "só, bors, kevés pirospaprika",
+      "Csipetkéhez: 1 tojás, finomliszt"
     ],
     "steps": [
       ""
@@ -214,7 +298,12 @@ export const recipes = [
     "image": "",
     "tikTokId": "7604464725912456470",
     "ingredients": [
-      ""
+      "4 db egész csirkecomb",
+      "1 kg burgonya",
+      "2 fej lilahagyma",
+      "3-4 gerezd fokhagyma",
+      "só, bors, sültcsirke fűszersó",
+      "kevés olaj"
     ],
     "steps": [
       ""
@@ -227,7 +316,15 @@ export const recipes = [
     "image": "",
     "tikTokId": "7604945826959346966",
     "ingredients": [
-      ""
+      "Tészta: 50 dkg liszt",
+      "3 dl tej",
+      "2 tojássárgája",
+      "5 dkg olvasztott vaj",
+      "2 dkg friss élesztő",
+      "Forgatáshoz: 15 dkg darált dió",
+      "10 dkg cukor",
+      "10 dkg olvasztott vaj",
+      "Vaníliasodó: 5 dl tej, 3 tojássárgája, vaníliás cukor, 5 dkg cukor"
     ],
     "steps": [
       ""
@@ -240,7 +337,12 @@ export const recipes = [
     "image": "",
     "tikTokId": "7605655760411823382",
     "ingredients": [
-      ""
+      "50 dkg burgonya",
+      "30 dkg fodros nagykocka tészta",
+      "1 nagy fej vöröshagyma",
+      "1 evőkanál fűszerpaprika",
+      "só, őrölt feketebors",
+      "2 evőkanál sertészsír vagy olaj"
     ],
     "steps": [
       ""
@@ -253,7 +355,14 @@ export const recipes = [
     "image": "",
     "tikTokId": "7606785073123265814",
     "ingredients": [
-      ""
+      "30 dkg liszt",
+      "3 tojássárgája",
+      "1 dl tejföl",
+      "1 evőkanál rum (vagy pici ecet a ropogósságért)",
+      "5 dkg porcukor",
+      "1 csipet só",
+      "bő olaj a sütéshez",
+      "porcukor és baracklekvár a tálaláshoz"
     ],
     "steps": [
       ""
@@ -266,7 +375,12 @@ export const recipes = [
     "image": "",
     "tikTokId": "7607139802026102038",
     "ingredients": [
-      ""
+      "1 kg friss fejes káposzta",
+      "500 ml sűrű paradicsomlé",
+      "1 kis fej hagyma",
+      "2 evőkanál liszt a rántáshoz",
+      "kevés olaj",
+      "só, cukor (ízlés szerint, hogy kellemesen édeskés legyen)"
     ],
     "steps": [
       ""
@@ -279,7 +393,12 @@ export const recipes = [
     "image": "",
     "tikTokId": "7608296625202662658",
     "ingredients": [
-      ""
+      "50 dkg csirkemell filé",
+      "3 db tojás",
+      "10 dkg finomliszt",
+      "15 dkg zsemlemorzsa",
+      "só, bors",
+      "olaj a sütéshez"
     ],
     "steps": [
       ""
@@ -292,7 +411,13 @@ export const recipes = [
     "image": "",
     "tikTokId": "7609732593747004694",
     "ingredients": [
-      ""
+      "50 dkg darált háztartási keksz",
+      "10 dkg olvasztott vaj vagy margarin",
+      "20 dkg porcukor",
+      "3 evőkanál cukrozatlan kakaópor",
+      "2 dl tej",
+      "1 ampulla rumaroma (vagy igazi rum)",
+      "10 dkg kókuszreszelék a forgatáshoz"
     ],
     "steps": [
       ""
@@ -305,7 +430,12 @@ export const recipes = [
     "image": "",
     "tikTokId": "7610872155424886039",
     "ingredients": [
-      ""
+      "1 bögre hajdina (grecska)",
+      "2 bögre víz",
+      "1 fej vöröshagyma",
+      "2 pár virsli (karikázva)",
+      "só, bors",
+      "kevés olaj vagy vaj"
     ],
     "steps": [
       ""
@@ -318,7 +448,16 @@ export const recipes = [
     "image": "",
     "tikTokId": "7612343970567359766",
     "ingredients": [
-      ""
+      "Tészta: 50 dkg liszt",
+      "2 dl langyos tej",
+      "1 friss élesztő (5dkg)",
+      "5 dkg cukor",
+      "5 dkg olvasztott vaj",
+      "1 tojás",
+      "Töltelék: 10 dkg puha vaj",
+      "10 dkg barna cukor",
+      "2 evőkanál őrölt fahéj",
+      "Máz (opcionális): 10 dkg krémsajt, 5 dkg porcukor"
     ],
     "steps": [
       ""
@@ -329,7 +468,14 @@ export const recipes = [
     "title": "Paprikás krumpli",
     "shortDescription": "Hagyományos paprikás krumpli, gyors, ízletes és mindig jól esik!",
     "ingredients": [
-      ""
+      "1 kg burgonya",
+      "1 nagy fej vöröshagyma",
+      "1 db TV paprika",
+      "1 db paradicsom",
+      "25 dkg füstölt kolbász",
+      "1 pár virsli (opcionális)",
+      "só, őrölt kömény, pirospaprika",
+      "2 evőkanál zsír vagy olaj"
     ],
     "steps": [
       ""
@@ -342,7 +488,13 @@ export const recipes = [
     "image": "",
     "tikTokId": "7614223649125567766",
     "ingredients": [
-      ""
+      "50 dkg mascarpone",
+      "4 db friss tojás",
+      "10 dkg cukor",
+      "1 nagy csomag babapiskóta",
+      "3 dl erős feketekávé (lehűtve)",
+      "2 evőkanál amaretto likőr vagy rumaroma",
+      "kakaópor a tetejére"
     ],
     "steps": [
       ""
@@ -355,7 +507,14 @@ export const recipes = [
     "image": "",
     "tikTokId": "7620049237396475158",
     "ingredients": [
-      ""
+      "1 kisebb fej kelkáposzta",
+      "3-4 db burgonya",
+      "4 db minőségi virsli",
+      "1 fej vöröshagyma",
+      "2 gerezd fokhagyma",
+      "1 teáskanál köménymag, pirospaprika, só, bors",
+      "2 dl tejföl",
+      "kevés olaj"
     ],
     "steps": [
       ""
@@ -368,7 +527,13 @@ export const recipes = [
     "image": "",
     "tikTokId": "7621610596277980438",
     "ingredients": [
-      ""
+      "2 db közepes méretű cukkini",
+      "2 db tojás",
+      "3-4 evőkanál zsemlemorzsa vagy zabpehely",
+      "2 gerezd fokhagyma",
+      "5 dkg reszelt sajt",
+      "só, bors, friss kapor",
+      "olaj a sütéshez"
     ],
     "steps": [
       ""
@@ -401,7 +566,11 @@ export const recipes = [
     "image": "",
     "tikTokId": "7622356676301098262",
     "ingredients": [
-      ""
+      "1 liter zsíros házi tej",
+      "10 db friss tojás",
+      "1 teáskanál só",
+      "2-3 evőkanál cukor",
+      "1 csomag vaníliás cukor (opcionális)"
     ],
     "steps": [
       ""
