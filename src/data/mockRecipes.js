@@ -18,7 +18,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775387115177"
+    "id": "1775387115177",
+    "category": "foetelek",
+    "region": "magyar",
+    "tags": [
+      "vasárnapi"
+    ],
+    "timeMinutes": 120,
+    "difficulty": 2,
+    "servings": 6,
+    "tip": ""
   },
   {
     "title": "Pörkölt tarhonyával",
@@ -39,7 +48,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775387091387"
+    "id": "1775387091387",
+    "category": "foetelek",
+    "region": "magyar",
+    "tags": [
+      "egytál"
+    ],
+    "timeMinutes": 100,
+    "difficulty": 2,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Karácsonyi mákos bejgli",
@@ -62,7 +80,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775387062854"
+    "id": "1775387062854",
+    "category": "sutemenyek",
+    "region": "magyar",
+    "tags": [
+      "ünnepi"
+    ],
+    "timeMinutes": 180,
+    "difficulty": 3,
+    "servings": 12,
+    "tip": ""
   },
   {
     "title": "Francia saláta",
@@ -82,7 +109,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386997239"
+    "id": "1775386997239",
+    "category": "falatkak",
+    "region": "karpataljai",
+    "tags": [
+      "ünnepi"
+    ],
+    "timeMinutes": 60,
+    "difficulty": 1,
+    "servings": 6,
+    "tip": ""
   },
   {
     "title": "Újévi virslis falatkák",
@@ -100,7 +136,17 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386964233"
+    "id": "1775386964233",
+    "category": "falatkak",
+    "region": "magyar",
+    "tags": [
+      "ünnepi",
+      "gyors"
+    ],
+    "timeMinutes": 30,
+    "difficulty": 1,
+    "servings": 6,
+    "tip": ""
   },
   {
     "title": "Sajtos párizsis tészta",
@@ -118,7 +164,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386902200"
+    "id": "1775386902200",
+    "category": "tesztak",
+    "region": "magyar",
+    "tags": [
+      "gyors"
+    ],
+    "timeMinutes": 25,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Palacsinta",
@@ -137,7 +192,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386872804"
+    "id": "1775386872804",
+    "category": "sutemenyek",
+    "region": "magyar",
+    "tags": [
+      "gyerekkedvenc"
+    ],
+    "timeMinutes": 40,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Borsófőzelék virslivel",
@@ -157,7 +221,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386844612"
+    "id": "1775386844612",
+    "category": "levesek",
+    "region": "magyar",
+    "tags": [
+      "hétköznapi"
+    ],
+    "timeMinutes": 35,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Kukoricakása",
@@ -172,7 +245,17 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386798056"
+    "id": "1775386798056",
+    "category": "tesztak",
+    "region": "karpataljai",
+    "tags": [
+      "gyors",
+      "reggeli"
+    ],
+    "timeMinutes": 15,
+    "difficulty": 1,
+    "servings": 2,
+    "tip": ""
   },
   {
     "title": "Lasagne",
@@ -192,7 +275,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386698004"
+    "id": "1775386698004",
+    "category": "tesztak",
+    "region": "nemzetkozi",
+    "tags": [
+      "vasárnapi"
+    ],
+    "timeMinutes": 90,
+    "difficulty": 2,
+    "servings": 6,
+    "tip": ""
   },
   {
     "title": "Sütőben sűlt fasírt, szósszal",
@@ -211,7 +303,14 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386683823"
+    "id": "1775386683823",
+    "category": "foetelek",
+    "region": "magyar",
+    "tags": [],
+    "timeMinutes": 60,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Tepertős pogácsa szilva lekvárral",
@@ -232,7 +331,14 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386619299"
+    "id": "1775386619299",
+    "category": "sutemenyek",
+    "region": "magyar",
+    "tags": [],
+    "timeMinutes": 90,
+    "difficulty": 2,
+    "servings": 20,
+    "tip": ""
   },
   {
     "title": "Zöldpaszúly leves/főzelék",
@@ -252,7 +358,14 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386571023"
+    "id": "1775386571023",
+    "category": "levesek",
+    "region": "karpataljai",
+    "tags": [],
+    "timeMinutes": 45,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Rakott krumpli",
@@ -271,7 +384,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386547004"
+    "id": "1775386547004",
+    "category": "foetelek",
+    "region": "magyar",
+    "tags": [
+      "egytál"
+    ],
+    "timeMinutes": 75,
+    "difficulty": 1,
+    "servings": 6,
+    "tip": ""
   },
   {
     "title": "Borsóleves",
@@ -290,7 +412,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386525753"
+    "id": "1775386525753",
+    "category": "levesek",
+    "region": "magyar",
+    "tags": [
+      "gyors"
+    ],
+    "timeMinutes": 30,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Sütőben sült tepsis csirke",
@@ -308,7 +439,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386492628"
+    "id": "1775386492628",
+    "category": "foetelek",
+    "region": "magyar",
+    "tags": [
+      "egytál"
+    ],
+    "timeMinutes": 70,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Aranygaluska",
@@ -329,7 +469,14 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386471343"
+    "id": "1775386471343",
+    "category": "sutemenyek",
+    "region": "magyar",
+    "tags": [],
+    "timeMinutes": 90,
+    "difficulty": 2,
+    "servings": 6,
+    "tip": ""
   },
   {
     "title": "Krumplistészta",
@@ -347,7 +494,17 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386442104"
+    "id": "1775386442104",
+    "category": "tesztak",
+    "region": "magyar",
+    "tags": [
+      "gyors",
+      "hétköznapi"
+    ],
+    "timeMinutes": 30,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Csőrögefánk",
@@ -367,7 +524,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386410611"
+    "id": "1775386410611",
+    "category": "sutemenyek",
+    "region": "magyar",
+    "tags": [
+      "ünnepi"
+    ],
+    "timeMinutes": 60,
+    "difficulty": 2,
+    "servings": 8,
+    "tip": ""
   },
   {
     "title": "Paradicsomos káposzta",
@@ -385,7 +551,14 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386376908"
+    "id": "1775386376908",
+    "category": "levesek",
+    "region": "magyar",
+    "tags": [],
+    "timeMinutes": 40,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Bundás csirkemell",
@@ -403,7 +576,17 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386323285"
+    "id": "1775386323285",
+    "category": "foetelek",
+    "region": "magyar",
+    "tags": [
+      "gyors",
+      "gyerekkedvenc"
+    ],
+    "timeMinutes": 30,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Kókuszgolyó ",
@@ -422,7 +605,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386259986"
+    "id": "1775386259986",
+    "category": "sutemenyek",
+    "region": "magyar",
+    "tags": [
+      "sütés nélkül"
+    ],
+    "timeMinutes": 30,
+    "difficulty": 1,
+    "servings": 20,
+    "tip": ""
   },
   {
     "title": "Grecska / Hajdina",
@@ -440,7 +632,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386182573"
+    "id": "1775386182573",
+    "category": "tesztak",
+    "region": "karpataljai",
+    "tags": [
+      "gyors"
+    ],
+    "timeMinutes": 25,
+    "difficulty": 1,
+    "servings": 3,
+    "tip": ""
   },
   {
     "title": "Cinnamonroll",
@@ -462,7 +663,14 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386146321"
+    "id": "1775386146321",
+    "category": "sutemenyek",
+    "region": "nemzetkozi",
+    "tags": [],
+    "timeMinutes": 150,
+    "difficulty": 2,
+    "servings": 12,
+    "tip": ""
   },
   {
     "title": "Paprikás krumpli",
@@ -480,7 +688,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386123828"
+    "id": "1775386123828",
+    "category": "foetelek",
+    "region": "magyar",
+    "tags": [
+      "egytál"
+    ],
+    "timeMinutes": 45,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Tiramisu",
@@ -499,7 +716,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386070757"
+    "id": "1775386070757",
+    "category": "sutemenyek",
+    "region": "nemzetkozi",
+    "tags": [
+      "sütés nélkül"
+    ],
+    "timeMinutes": 30,
+    "difficulty": 1,
+    "servings": 8,
+    "tip": ""
   },
   {
     "title": "Frankfurti leves",
@@ -519,7 +745,14 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775386020023"
+    "id": "1775386020023",
+    "category": "levesek",
+    "region": "magyar",
+    "tags": [],
+    "timeMinutes": 45,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Cukkini fasírt",
@@ -538,7 +771,16 @@ export const recipes = [
     "steps": [
       ""
     ],
-    "id": "1775385991737"
+    "id": "1775385991737",
+    "category": "foetelek",
+    "region": "magyar",
+    "tags": [
+      "vegetáriánus"
+    ],
+    "timeMinutes": 40,
+    "difficulty": 1,
+    "servings": 4,
+    "tip": ""
   },
   {
     "title": "Húsvéti kalács",
@@ -558,7 +800,16 @@ export const recipes = [
       ""
     ],
     "id": "1775385930029",
-    "isDaily": true
+    "isDaily": true,
+    "category": "sutemenyek",
+    "region": "karpataljai",
+    "tags": [
+      "ünnepi"
+    ],
+    "timeMinutes": 150,
+    "difficulty": 2,
+    "servings": 10,
+    "tip": ""
   },
   {
     "title": "Sárgatúró",
@@ -576,6 +827,15 @@ export const recipes = [
       ""
     ],
     "id": "1775385790301",
-    "isDaily": false
+    "isDaily": false,
+    "category": "sutemenyek",
+    "region": "karpataljai",
+    "tags": [
+      "ünnepi"
+    ],
+    "timeMinutes": 60,
+    "difficulty": 1,
+    "servings": 8,
+    "tip": ""
   }
 ];

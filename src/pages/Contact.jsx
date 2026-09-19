@@ -1,5 +1,13 @@
 // src/pages/Contact.jsx
 import React, { useState } from 'react';
+import { Reveal, SplitHeadline } from '../components/Motion/Motion';
+import { StitchRosette } from '../components/UI/Stitch';
+import { TikTok, Check } from '../components/UI/Icons';
+import { TIKTOK_URL } from '../components/Layout/Navbar';
+
+const inputClass =
+  'w-full rounded-2xl border border-line bg-cream px-4 py-3.5 text-ink transition-[border-color,box-shadow] placeholder:text-ink-soft/50 hover:border-ink/25 focus:border-paprika focus:outline-none focus:ring-4 focus:ring-paprika/15';
+
 
 const Contact = () => {
   // Állapotok a gomb és a visszajelzés kezelésére
@@ -44,78 +52,65 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white/80 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-soft border border-brand-beige relative z-10">
-      <h1 className="text-3xl font-bold text-brand-dark mb-4">Írj nekem!</h1>
-      <p className="text-brand-mid mb-8">
-        Kérdésed van egy recepttel kapcsolatban, vagy csak üzennél? Töltsd ki az alábbi űrlapot!
-      </p>
-      
-      <form className="space-y-6" onSubmit={handleSubmit}>
+    <section className="relative overflow-hidden pb-[var(--section)] pt-32 md:pt-40">
+      <StitchRosette className="pointer-events-none absolute -left-32 top-24 w-[520px] max-w-none text-paprika opacity-[.04]" />
+      <div className="container-site grid gap-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
         <div>
-          <label className="block text-brand-dark font-medium mb-2">Neved</label>
-          <input 
-            type="text" 
-            name="name"
-            required
-            className="w-full bg-brand-bg/50 border border-brand-beige rounded-xl px-4 py-3 focus:outline-none focus:border-brand-mid focus:ring-1 focus:ring-brand-mid transition-colors text-brand-dark"
-            placeholder="Kovács Anna"
-          />
-        </div>
-        
-        <div>
-          <label className="block text-brand-dark font-medium mb-2">Email címed</label>
-          <input 
-            type="email" 
-            name="email"
-            required
-            className="w-full bg-brand-bg/50 border border-brand-beige rounded-xl px-4 py-3 focus:outline-none focus:border-brand-mid focus:ring-1 focus:ring-brand-mid transition-colors text-brand-dark"
-            placeholder="anna@pelda.hu"
-          />
-        </div>
-        
-        <div>
-          <label className="block text-brand-dark font-medium mb-2">Üzenet</label>
-          <textarea 
-            name="message"
-            required
-            rows="5"
-            className="w-full bg-brand-bg/50 border border-brand-beige rounded-xl px-4 py-3 focus:outline-none focus:border-brand-mid focus:ring-1 focus:ring-brand-mid transition-colors text-brand-dark resize-none"
-            placeholder="Szia Erika! A tegnapi tészta isteni lett..."
-          ></textarea>
+          <Reveal as="p" className="eyebrow">Kapcsolat</Reveal>
+          <SplitHeadline className="mt-5 font-display text-step-4 leading-[1] text-ink" lines={['Írj', <span className="accent-word">nekem!</span>]} />
+          <Reveal as="p" delay={0.3} className="mt-6 max-w-md text-step-1 text-ink-soft">
+            Kérdésed van egy recepttel kapcsolatban, elkészítetted és megosztanád, vagy csak köszönnél? Minden üzenetet elolvasok.
+          </Reveal>
+          <Reveal delay={0.4} className="mt-10 space-y-4">
+            <p className="font-hand text-[1.7rem] leading-none text-paprika">…vagy találkozzunk a TikTokon!</p>
+            <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+              <TikTok size={16} /> @eranagy20
+            </a>
+          </Reveal>
         </div>
 
-        {/* Visszajelzések a felhasználónak */}
-        {status === 'success' && (
-          <div className="bg-green-100 text-green-700 p-4 rounded-xl font-bold text-center border border-green-200">
-            ✅ Köszönjük! Az üzenetet sikeresen elküldtük.
-          </div>
-        )}
-        
-        {status === 'error' && (
-          <div className="bg-red-100 text-red-700 p-4 rounded-xl font-bold text-center border border-red-200">
-            ❌ Hiba történt a küldés során. Kérjük, próbáld újra később!
-          </div>
-        )}
+        <Reveal delay={0.2} className="rounded-frame border border-line bg-surface p-6 shadow-card md:p-10">
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <div className="grid gap-6 md:grid-cols-2">
+              <label className="block">
+                <span className="mb-2 block text-sm font-bold text-ink">Neved</span>
+                <input type="text" name="name" required autoComplete="name" className={inputClass} placeholder="Kovács Anna" />
+              </label>
+              <label className="block">
+                <span className="mb-2 block text-sm font-bold text-ink">E-mail címed</span>
+                <input type="email" name="email" required autoComplete="email" className={inputClass} placeholder="anna@pelda.hu" />
+              </label>
+            </div>
+            <label className="block">
+              <span className="mb-2 block text-sm font-bold text-ink">Üzenet</span>
+              <textarea name="message" required rows="6" className={`${inputClass} resize-none`} placeholder="Szia Erika! A tegnapi tészta isteni lett…" />
+            </label>
 
-        <button 
-          type="submit"
-          disabled={status === 'submitting'}
-          className={`w-full py-3.5 rounded-xl font-semibold text-lg transition-all shadow-md active:scale-95 flex justify-center items-center gap-2
-            ${status === 'submitting' 
-              ? 'bg-brand-mid/50 text-white cursor-not-allowed' 
-              : 'bg-brand-dark text-brand-bg hover:bg-brand-mid'}`}
-        >
-          {status === 'submitting' ? (
-            <>
-              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-              Küldés folyamatban...
-            </>
-          ) : (
-            'Üzenet küldése'
-          )}
-        </button>
-      </form>
-    </div>
+            {status === 'success' && (
+              <p role="status" className="flex items-center gap-3 rounded-2xl bg-dill/15 p-4 font-semibold text-dill">
+                <Check size={18} strokeWidth={2.2} /> Köszönöm! Az üzenetedet megkaptam, hamarosan válaszolok.
+              </p>
+            )}
+            {status === 'error' && (
+              <p role="alert" className="rounded-2xl bg-paprika/10 p-4 font-semibold text-paprika">
+                Hiba történt a küldés során. Kérlek, próbáld újra később!
+              </p>
+            )}
+
+            <button type="submit" disabled={status === 'submitting'} className="btn btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60">
+              {status === 'submitting' ? (
+                <>
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-on-paprika/30 border-t-on-paprika" />
+                  Küldés folyamatban…
+                </>
+              ) : (
+                'Üzenet küldése'
+              )}
+            </button>
+          </form>
+        </Reveal>
+      </div>
+    </section>
   );
 };
 

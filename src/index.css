@@ -1,27 +1,302 @@
+@import './styles/tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ───────────────────────── Alapok ───────────────────────── */
 @layer base {
-  body {
-    /* Biztosítjuk a meleg tónusú, otthonos hátteret az egész alkalmazásban */
-    background-color: #E1D4C2; 
-    color: #291C0E;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  html {
+    background-color: rgb(var(--bg));
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 96px;
   }
+
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--ink));
+    font-family: theme('fontFamily.sans');
+    font-size: var(--step-0);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: theme('fontFamily.display');
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 100, "WONK" 0;
+    font-weight: 450;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  ::selection {
+    background: rgb(var(--dough));
+    color: rgb(var(--ink));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--paprika));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  img, video { max-width: 100%; }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: rgb(var(--bg)); }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--line));
+    border: 3px solid rgb(var(--bg));
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--ink-soft) / .5); }
 }
 
-/* Egyedi görgetősáv (scrollbar) az otthonosabb megjelenésért */
-::-webkit-scrollbar {
-  width: 8px;
+/* ───────────────────────── Komponensek ───────────────────────── */
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .section-space { padding-block: var(--section); }
+
+  .eyebrow {
+    font-family: theme('fontFamily.sans');
+    font-size: var(--step-n1);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgb(var(--paprika));
+  }
+
+  /* Kiemelt dőlt szó a címekben: "Nagymama konyhája, *ma is.*" */
+  .accent-word {
+    font-style: italic;
+    font-variation-settings: "SOFT" 100, "WONK" 1;
+    color: rgb(var(--paprika));
+  }
+
+  /* ── Gombok ── */
+  .btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    padding: .95rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: .95rem;
+    letter-spacing: .01em;
+    line-height: 1;
+    white-space: nowrap;
+    transition: transform .2s var(--ease-out), color .3s var(--ease-out),
+      border-color .3s var(--ease-out), box-shadow .4s var(--ease-out);
+  }
+  .btn:active { transform: scale(.97); }
+  .btn .btn-arrow { transition: transform .35s var(--ease-out); }
+  .btn:hover .btn-arrow { transform: translateX(4px); }
+
+  .btn-primary {
+    background: rgb(var(--paprika));
+    color: rgb(var(--on-paprika));
+    box-shadow: 0 10px 24px -12px rgb(var(--paprika) / .7);
+  }
+  /* sötétebb paprika "tölt fel" alulról */
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgb(143 42 21);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform .45s var(--ease-out);
+  }
+  .btn-primary:hover::before { transform: scaleY(1); }
+  .btn-primary:hover { box-shadow: 0 16px 32px -14px rgb(var(--paprika) / .8); }
+
+  .btn-ghost {
+    background: rgb(var(--surface) / .6);
+    color: rgb(var(--ink));
+    border: 1px solid rgb(var(--line));
+  }
+  .btn-ghost:hover {
+    border-color: rgb(var(--ink) / .35);
+    background: rgb(var(--surface));
+  }
+
+  .btn-sm { padding: .65rem 1.1rem; font-size: .85rem; }
+
+  /* ── Aláhúzás, ami balról "berajzolódik" ── */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size .5s var(--ease-out);
+  }
+  .link-draw:hover,
+  .group:hover .link-draw,
+  .group:focus-visible .link-draw { background-size: 100% 1px; }
+
+  /* ── Címkék ── */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .38rem .7rem;
+    border-radius: 999px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    line-height: 1;
+    background: rgb(var(--dough));
+    color: rgb(var(--ink));
+  }
+  .tag-dill { background: rgb(var(--dill) / .16); color: rgb(var(--dill)); }
+  .tag-paprika { background: rgb(var(--paprika)); color: rgb(var(--on-paprika)); }
+  .tag-glass {
+    background: rgb(255 253 249 / .88);
+    color: rgb(41 28 14);
+    backdrop-filter: blur(6px);
+  }
+
+  /* ── Len szövés (csak váltakozó szekciókon) ── */
+  .linen {
+    background-color: rgb(var(--surface-alt));
+    background-image:
+      repeating-linear-gradient(0deg, rgb(var(--ink) / .025) 0 1px, transparent 1px 3px),
+      repeating-linear-gradient(90deg, rgb(var(--ink) / .025) 0 1px, transparent 1px 3px);
+  }
+
+  /* ── Tépett papírszél maszk (portrék, polaroidok) ── */
+  .deckled {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500' preserveAspectRatio='none'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.045' numOctaves='3' seed='7'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='16'/%3E%3C/filter%3E%3Crect x='10' y='10' width='380' height='480' fill='black' filter='url(%23r)'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500' preserveAspectRatio='none'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.045' numOctaves='3' seed='7'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='16'/%3E%3C/filter%3E%3Crect x='10' y='10' width='380' height='480' fill='black' filter='url(%23r)'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+
+  /* ── Recept kártya hover ── */
+  .recipe-card { transition: transform .5s var(--ease-out); }
+  .recipe-card .card-media {
+    box-shadow: 0 1px 2px rgb(41 28 14 / .06);
+    transition: box-shadow .5s var(--ease-out);
+  }
+  .recipe-card .card-media img {
+    transition: scale .8s var(--ease-out), filter .5s var(--ease-out);
+  }
+  .recipe-card .card-cta {
+    opacity: 0;
+    translate: -6px 0;
+    transition: opacity .3s var(--ease-out), translate .3s var(--ease-out);
+  }
+  .recipe-card .play-badge { transition: background-color .3s, color .3s; }
+
+  .recipe-card:hover,
+  .recipe-card:focus-within { transform: translateY(-4px); }
+  .recipe-card:hover .card-media,
+  .recipe-card:focus-within .card-media {
+    box-shadow: 0 24px 48px -16px rgb(143 42 21 / .32);
+  }
+  .recipe-card:hover .card-media img,
+  .recipe-card:focus-within .card-media img { scale: 1.05; filter: saturate(1.08); }
+  .recipe-card:hover .card-cta,
+  .recipe-card:focus-within .card-cta { opacity: 1; translate: 0 0; }
+  .recipe-card:hover .play-badge,
+  .recipe-card:focus-within .play-badge {
+    background: rgb(var(--paprika));
+    color: rgb(var(--on-paprika));
+  }
+
+  /* Vízszintes görgetés rejtett sávval (kategória sín) */
+  .scroll-rail {
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+  .scroll-rail::-webkit-scrollbar { display: none; }
+  .scroll-rail > * { scroll-snap-align: start; }
 }
-::-webkit-scrollbar-track {
-  background: #E1D4C2; 
+
+/* ───────────────────────── Textúra: filmszemcse / lisztpor ───────────────────────── */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-::-webkit-scrollbar-thumb {
-  background: #A78D78; 
-  border-radius: 10px;
+
+/* ───────────────────────── Görgetésre induló animációk ───────────────────────── */
+/* Parallax: a kép a keretén BELÜL mozdul, max ±6% */
+.parallax-frame { overflow: hidden; }
+@supports (animation-timeline: view()) {
+  .parallax-frame > img,
+  .parallax-frame > .parallax-inner {
+    scale: 1.14;
+    animation: parallax-drift linear both;
+    animation-timeline: view();
+  }
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #6E473B; 
+@keyframes parallax-drift {
+  from { translate: 0 -6%; }
+  to   { translate: 0 6%; }
+}
+
+/* ───────────────────────── Oldalváltások (View Transitions API) ───────────────────────── */
+::view-transition-group(*) {
+  animation-duration: .55s;
+  animation-timing-function: var(--ease-out);
+}
+
+/* Recept kártya → recept oldal: a kép átnő a hero-ba, a többi finoman áttűnik */
+html[data-transition="recipe"]::view-transition-old(root) {
+  animation: vt-fade-out .25s var(--ease-out) both;
+}
+html[data-transition="recipe"]::view-transition-new(root) {
+  animation: vt-fade-up .45s var(--ease-out) .08s both;
+}
+
+/* Fő menüpontok között: "konyharuha-törlés" – az új oldal balról jobbra kerül elő */
+html[data-transition="wipe"]::view-transition-old(root) {
+  animation: vt-recede .6s var(--ease-in-out) both;
+}
+html[data-transition="wipe"]::view-transition-new(root) {
+  animation: vt-wipe .6s var(--ease-in-out) both;
+}
+
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-fade-up { from { opacity: 0; transform: translateY(14px); } }
+@keyframes vt-recede { to { opacity: .4; transform: scale(.985); } }
+@keyframes vt-wipe {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+/* ───────────────────────── Kevesebb mozgás kérése ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
 }

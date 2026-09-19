@@ -1,62 +1,50 @@
 // src/components/Layout/Layout.jsx
-import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'motion/react';
 import Navbar from './Navbar';
+import Footer from './Footer';
+import CommandSearch from './CommandSearch';
 
 const Layout = () => {
+  const [searchOpen, setSearchOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  // "/" vagy ⌘K / Ctrl+K nyitja a keresőt
+  useEffect(() => {
+    const onKey = (e) => {
+      const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) || e.target.isContentEditable;
+      if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !typing)) {
+        e.preventDefault();
+        setSearchOpen((o) => !o);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  useEffect(() => setSearchOpen(false), [pathname]);
+
   return (
-    <div className="min-h-screen font-sans text-brand-dark relative selection:bg-brand-mid selection:text-white">
-      
-      {/* --- MODERN, VIGNETTE-HATÁSÚ HÁTTÉR --- */}
-      <div className="fixed inset-0 z-0 bg-[#EBE3D9] overflow-hidden">
-        
-        {/* 1. KÖZPONTI VILÁGOSSÁG: Marad a tiszta fehér ragyogás a közepén */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[100vh] bg-white rounded-full blur-[150px] opacity-90 pointer-events-none"></div>
+    <div className="relative flex min-h-screen flex-col bg-cream text-ink">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-paprika focus:px-4 focus:py-2 focus:text-on-paprika">
+        Ugrás a tartalomra
+      </a>
 
-        {/* 2. SÖTÉTEDŐ SZÉLEK ÉS SARKOK (Vignette) */}
-        {/* Bal felső sötétebb folt */}
-        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#6E473B] rounded-full blur-[120px] opacity-40 pointer-events-none"></div>
-        
-        {/* Jobb alsó sötétebb folt */}
-        <div className="absolute bottom-[-15%] right-[-10%] w-[600px] h-[600px] bg-[#291C0E] rounded-full blur-[140px] opacity-45 pointer-events-none"></div>
-        
-        {/* Bal alsó mélyebb tónus */}
-        <div className="absolute bottom-[-10%] left-[-15%] w-[450px] h-[450px] bg-[#3D2B1F] rounded-full blur-[100px] opacity-35 pointer-events-none"></div>
+      <Navbar onSearch={() => setSearchOpen(true)} />
 
-        {/* 3. EXTRA SÖTÉTÍTÉS A SZÉLEKEN (Gradiens keret) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#291C0E]/20 via-transparent to-[#291C0E]/30 pointer-events-none"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#291C0E]/10 via-transparent to-[#291C0E]/10 pointer-events-none"></div>
-      </div>
+      <main id="main" className="flex-1">
+        <Outlet />
+      </main>
 
-      {/* TARTALOM */}
-      <div className="relative z-10 flex flex-col min-h-screen">
-        <Navbar />
-        
-        <main className="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
-          <Outlet />
-        </main>
-        
-        {/* FOOTER */}
-        <footer className="bg-brand-dark/90 backdrop-blur-md text-brand-bg py-12 mt-auto border-t border-white/5">
-          <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-center md:text-left">
-              <p className="opacity-70 text-sm font-medium tracking-wide">
-                © {new Date().getFullYear()} <span className="font-bold">Pógyor Erika</span> – Erika Konyhája
-              </p>
-              <p className="opacity-30 text-[10px] mt-1.5 uppercase tracking-[0.3em] font-bold italic">
-                Kárpátaljai receptek szívvel-lélekkel
-              </p>
-            </div>
+      <Footer />
 
-            <Link 
-              to="/login" 
-              className="text-[9px] uppercase tracking-[0.4em] opacity-20 hover:opacity-100 hover:text-brand-light transition-all duration-700 py-2 px-4 border border-white/10 rounded-full"
-            >
-              Adminisztráció
-            </Link>
-          </div>
-        </footer>
-      </div>
+      <AnimatePresence>{searchOpen && <CommandSearch onClose={() => setSearchOpen(false)} />}</AnimatePresence>
+
+      {/* Filmszemcse / lisztpor – a lapos digitális krémet papírszerűvé teszi */}
+      <div className="grain" aria-hidden="true" />
+
+      <ScrollRestoration />
     </div>
   );
 };

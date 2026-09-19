@@ -37,7 +37,7 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-20 p-10 bg-white/80 backdrop-blur-md rounded-[2.5rem] shadow-soft border border-brand-beige text-center relative z-10">
+    <div className="max-w-md mx-auto mt-32 mb-20 p-10 bg-surface backdrop-blur-md rounded-[2.5rem] shadow-soft border border-brand-beige text-center relative z-10">
       <h2 className="text-2xl font-bold text-brand-dark mb-2">Admin Belépés</h2>
       <p className="text-sm text-brand-mid mb-8 opacity-70 italic">Csak Erika és Bence részére</p>
       
@@ -72,7 +72,7 @@ const Login = () => {
           </div>
         )}
 
-        <button className="w-full bg-brand-dark text-white py-4 rounded-2xl font-bold hover:bg-brand-mid transition-all shadow-md active:scale-95 mt-4">
+        <button className="w-full bg-paprika text-on-paprika py-4 rounded-2xl font-bold hover:bg-paprika-deep transition-all shadow-md active:scale-95 mt-4">
           Belépés a vezérlőpultra
         </button>
       </form>

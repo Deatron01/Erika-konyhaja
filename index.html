@@ -2,9 +2,19 @@
 <html lang="hu">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/png" href="/chef.png" />
-    <title>Erika Konyhája</title>
+    <title>Erika Konyhája – kárpátaljai és magyar házi receptek</title>
+    <meta name="description" content="Igazi otthoni ízek Kárpátaljáról és a magyar konyhából – Erika receptjei videóval, lépésről lépésre." />
+    <meta name="theme-color" content="#FAF6EF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1A130E" media="(prefers-color-scheme: dark)" />
+    <script>
+      // Téma beállítása még a festés előtt, hogy ne villanjon
+      try {
+        var t = localStorage.getItem('erika_theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

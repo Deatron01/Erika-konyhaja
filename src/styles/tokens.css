@@ -1,0 +1,84 @@
+/* src/styles/tokens.css
+   Erika Konyhája – design tokenek.
+   A színek RGB csatornaként vannak megadva, hogy a Tailwind átlátszóság-módosítói működjenek. */
+
+:root {
+  /* Liszt-krém alap, len felületek */
+  --bg: 250 246 239;            /* #FAF6EF */
+  --surface: 255 253 249;       /* #FFFDF9 */
+  --surface-alt: 239 231 218;   /* #EFE7DA */
+
+  /* Dió & tölgy – szöveg */
+  --ink: 41 28 14;              /* #291C0E */
+  --ink-soft: 110 71 59;        /* #6E473B */
+  --line: 226 214 196;          /* #E2D6C4 */
+
+  /* Szegedi paprika – az egyetlen erős kiemelőszín */
+  --paprika: 184 57 31;         /* #B8391F */
+  --paprika-deep: 143 42 21;    /* #8F2A15 */
+  --on-paprika: 255 253 249;
+
+  /* Kiegészítők – csak apró részletekhez */
+  --crust: 200 137 58;          /* #C8893A */
+  --dough: 232 201 154;         /* #E8C99A */
+  --dill: 94 107 58;            /* #5E6B3A */
+
+  --grain-opacity: .05;
+  --grain-blend: multiply;
+
+  /* Tipográfia – folyékony skála */
+  --step-n1: clamp(0.8rem, 0.78rem + 0.1vw, 0.875rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.6rem, 1.4rem + 1vw, 2.25rem);
+  --step-3: clamp(2.2rem, 1.8rem + 2vw, 3.5rem);
+  --step-4: clamp(2.7rem, 1.9rem + 4vw, 5.5rem);
+
+  /* Mozgás */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --gutter: clamp(16px, 3vw, 32px);
+  --section: clamp(80px, 12vw, 160px);
+
+  color-scheme: light;
+}
+
+/* Sötét mód – "konyha éjjel" */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: 26 19 14;
+    --surface: 36 26 19;
+    --surface-alt: 44 33 24;
+    --ink: 243 235 221;
+    --ink-soft: 191 169 146;
+    --line: 62 47 35;
+    --paprika: 224 96 63;
+    --paprika-deep: 240 128 96;
+    --on-paprika: 255 253 249;
+    --crust: 214 160 90;
+    --dough: 84 62 38;
+    --dill: 150 163 104;
+    --grain-opacity: .07;
+    --grain-blend: soft-light;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: 26 19 14;
+  --surface: 36 26 19;
+  --surface-alt: 44 33 24;
+  --ink: 243 235 221;
+  --ink-soft: 191 169 146;
+  --line: 62 47 35;
+  --paprika: 224 96 63;
+  --paprika-deep: 240 128 96;
+  --on-paprika: 255 253 249;
+  --crust: 214 160 90;
+  --dough: 84 62 38;
+  --dill: 150 163 104;
+  --grain-opacity: .07;
+  --grain-blend: soft-light;
+  color-scheme: dark;
+}

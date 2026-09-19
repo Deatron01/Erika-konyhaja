@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vite-dev",
+      "runtimeExecutable": "/private/tmp/claude-501/-Users-biotechobuda-Documents-GitHub-Erika-konyhaja/e6ae1598-62e0-4dda-b0a4-a10fbeda2a34/scratchpad/node/bin/node",
+      "runtimeArgs": ["node_modules/vite/bin/vite.js", "--port", "5317", "--strictPort"],
+      "port": 5317
+    }
+  ]
+}
